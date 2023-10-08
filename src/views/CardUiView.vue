@@ -14,7 +14,7 @@ import { ref } from 'vue'
 import CardUi from '@/components/card/CardUi.vue'
 import CardUiHorizontal from '@/components/card/CardUiHorizontal.vue'
 
-// 상품데이터 하드코딩
+// 데이터 하드코딩
 const data = ref([
   {
     id: 1,

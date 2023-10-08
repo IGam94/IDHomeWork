@@ -1,24 +1,37 @@
 <template>
-  <div class="relative flex">
-    <textarea
-      class="border w-[40rem] h-20 p-2 resize-none"
-      type="textBox"
-      placeholder="내용을 입력해주세요."
-      v-model="modelValue"
-      @input="inputHandler"
-      :maxlength="maxLength"
-      :readonly="readonly"
-      :disabled="disabled"
-    />
-    <p class="absolute bottom-2 left-[38rem]">
-      {{ maxLength - textLength < 0 ? 0 : maxLength - textLength }}
-    </p>
-    <div class="w-20 h-20"><button v-if="saveBtn" class="w-20 h-20 border">저장</button></div>
+  <div class="relative flex w-[40rem] m-2">
+    <div class="relative flex w-full">
+      <textarea
+        class="w-full h-20 border p-2 resize-none"
+        :class="{ 'focus:outline-none': readonly }"
+        type="textBox"
+        placeholder="내용을 입력해주세요."
+        v-model="modelValue"
+        @input="countText"
+        :maxlength="maxLength"
+        :readonly="readonly"
+        :disabled="disabled"
+        @focus="inputFocus"
+        @blur="inputBlur"
+      />
+      <p class="absolute bottom-2 right-2">
+        {{ maxLength - textLength < 0 ? 0 : maxLength - textLength }}
+      </p>
+    </div>
+    <div v-if="showSaveBtn">
+      <button
+        @click="saveText"
+        :disabled="!activeSaveBtn"
+        class="w-20 h-20 border bg-amber-500 hover:bg-amber-600 text-white disabled:bg-gray-200 disabled:text-gray-400"
+      >
+        저장
+      </button>
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, watchEffect, defineModel } from 'vue'
 
 const { maxLength, readonly } = defineProps({
   maxLength: {
@@ -37,17 +50,30 @@ const modelValue = defineModel()
 
 const originText = ref(modelValue.value)
 const textLength = ref(modelValue.value.length)
-const saveBtn = ref(false)
+const activeSaveBtn = ref(false)
+const showSaveBtn = ref(false)
 
-const inputHandler = (e) => {
+watchEffect(() => {
+  originText.value !== modelValue.value
+    ? (activeSaveBtn.value = true)
+    : (activeSaveBtn.value = false)
+})
+
+const countText = (e) => {
   const target = e.currentTarget
   textLength.value = target.value.length
-  changeText(target.value)
 }
-const changeText = (text) => {
-  console.log(text)
-  originText.value === text ? (saveBtn.value = false) : (saveBtn.value = true)
+const saveText = () => {
+  originText.value === modelValue.value
+    ? alert('동일한 내용은 저장 할 수 없습니다.')
+    : alert('저장 되었습니다.')
+}
+const inputFocus = () => {
+  readonly ? (showSaveBtn.value = false) : (showSaveBtn.value = true)
+}
+const inputBlur = () => {
+  originText.value === modelValue.value ? (showSaveBtn.value = false) : (showSaveBtn.value = true)
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style scoped></style>
