@@ -1,7 +1,11 @@
 <template>
   <div class="flex flex-col max-w-40 border">
     <div class="flex justify-center items-center w-40 h-40 bg-black">
-      <img class="max-w-100" :src="cardItem.img || '../src/assets/image/ljs.jpeg'" alt="" />
+      <img
+        class="max-w-100"
+        :src="require(cardItem.img) || require('../src/assets/image/ljs.jpeg')"
+        alt=""
+      />
     </div>
     <div class="bg-slate-50">
       <div v-if="cardItem.label || cardItem.title" class="p-2">
