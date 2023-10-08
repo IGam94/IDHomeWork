@@ -18,7 +18,7 @@ import CardUiHorizontal from '@/components/card/CardUiHorizontal.vue'
 const data = ref([
   {
     id: 1,
-    img: '../src/assets/image/productImg.png',
+    img: './productImg.png',
     label: '라벨1',
     title: '상품명1',
     cellPrice: 10000,
@@ -29,7 +29,7 @@ const data = ref([
   },
   {
     id: 2,
-    img: '../src/assets/image/productImg.png',
+    img: './productImg.png',
     label: '',
     title: '상품명2',
     cellPrice: 20000,
@@ -39,7 +39,7 @@ const data = ref([
   },
   {
     id: 2,
-    img: '../src/assets/image/productImg.png',
+    img: './productImg.png',
     label: '',
     title: '',
     cellPrice: null,
@@ -62,7 +62,7 @@ const data = ref([
 ])
 const horizontalData = ref({
   id: 1,
-  img: '../src/assets/image/productImg.png',
+  img: './productImg.png',
   label: '이 상품은 영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게 행운을 주었고',
   title: '상품명1',
   cellPrice: null,
