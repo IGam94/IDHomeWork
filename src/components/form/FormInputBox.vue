@@ -6,11 +6,10 @@
         :class="{ 'focus:outline-none': readonly }"
         type="textBox"
         placeholder="내용을 입력해주세요."
-        v-model="modelValue"
-        @input="countText"
         :maxlength="maxLength"
         :readonly="readonly"
         :disabled="disabled"
+        @input="countText"
         @focus="inputFocus"
         @blur="inputBlur"
       />
@@ -30,12 +29,13 @@
   </div>
 </template>
 
-<script setup>
-import { ref, watchEffect, defineModel } from 'vue'
+<script setup lang="ts">
+import { ref, Ref, watchEffect, defineModel } from 'vue'
 
 const { maxLength, readonly } = defineProps({
   maxLength: {
-    type: Number
+    type: Number,
+    default: 100
   },
   readonly: {
     type: Boolean,
@@ -46,10 +46,11 @@ const { maxLength, readonly } = defineProps({
     default: false
   }
 })
-const modelValue = defineModel()
 
-const originText = ref(modelValue.value)
-const textLength = ref(modelValue.value.length)
+const modelValue: Ref<string> = defineModel({ required: true })
+
+const originText: Ref<string> = ref(modelValue.value || '')
+const textLength: Ref<number> = ref(modelValue.value.length || 0)
 const activeSaveBtn = ref(false)
 const showSaveBtn = ref(false)
 
@@ -61,6 +62,7 @@ watchEffect(() => {
 
 const countText = (e) => {
   const target = e.currentTarget
+  modelValue.value = target.value
   textLength.value = target.value.length
 }
 const saveText = () => {

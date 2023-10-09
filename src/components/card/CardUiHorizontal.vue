@@ -39,14 +39,25 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
-const { cardItem } = defineProps({
-  cardItem: {
-    type: Object
-  }
-})
+interface cardType {
+  id: number
+  img: string
+  label: string
+  title: string
+  cellPrice: number
+  price: number
+  star: number
+  review: string
+  name: string
+}
+interface cardProps {
+  cardItem: cardType
+}
+
+const { cardItem } = defineProps<cardProps>()
 
 const star = ref([1, 2, 3, 4, 5])
 const selectedStar = ref(cardItem.star)
