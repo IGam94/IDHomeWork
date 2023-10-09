@@ -9,6 +9,7 @@
         :maxlength="maxLength"
         :readonly="readonly"
         :disabled="disabled"
+        v-model="modelValue"
         @input="countText"
         @focus="inputFocus"
         @blur="inputBlur"
