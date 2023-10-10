@@ -1,12 +1,12 @@
 <template>
-  <div class="flex max-w-96 border">
-    <div class="flex justify-center items-center max-w-[10rem] bg-black">
+  <div class="flex max-w-[35rem] border">
+    <div class="flex justify-center items-center max-w-[18rem] bg-black">
       <img class="" :src="cardItem.img || '../src/assets/image/ljs.jpeg'" alt="" />
     </div>
-    <div class="flex flex-col justify-between w-56 bg-slate-50">
+    <div class="flex flex-col justify-between bg-slate-50">
       <div class="p-2 ">
-        <p class="text-sm mb-2">{{ cardItem.title }}</p>
-        <p class="text-xs">{{ cardItem.label }}</p>
+        <p class="text-lg mb-2 line-clamp-3">{{ cardItem.title }}</p>
+        <p class="text-sm line-clamp-3">{{ cardItem.label }}</p>
         <div v-if="cardItem.cellPrice || cardItem.price" class="flex items-center">
           <p class="text-md text-red-400">{{ cardItem.cellPrice }}원</p>
           <p class="ml-1 text-xs line-through">{{ cardItem.price }}원</p>
@@ -33,7 +33,7 @@
           </button>
         </div>
         <span class="text-slate-300 mx-1">|</span>
-        <p class="text-xs text-slate-400">{{ cardItem.name }}</p>
+        <p class="text-xs line-clamp-3 text-slate-400">{{ cardItem.name }}</p>
       </div>
     </div>
   </div>

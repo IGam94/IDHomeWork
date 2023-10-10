@@ -1,12 +1,16 @@
 <template>
-<div class="flex flex-wrap h-screen items-center justify-center">
-  <ul class="flex flex-wrap sm:justify-center my-0 mx-auto px-10 gap-8">
-      <li v-for="item in data" :key="item.id">
-        <CardUi :cardItem="item" />
-      </li>
-      <li><CardUiHorizontal :cardItem="horizontalData" /></li>
+<div class="flex h-screen items-center">
+  <div class=" w-[900px] sm:w-auto  mx-auto my-0 items-center ">
+    <ul class="grid grid-cols-4 sm:grid-cols-2 my-0 mx-auto px-10 gap-8">
+        <li class="w-[100%]" v-for="item in data" :key="item.id">
+          <CardUi :cardItem="item" />
+        </li>
+    </ul>
+    <ul class="grid grid-cols-1 my-0 mx-auto px-10 gap-8 mt-10">
+        <li><CardUiHorizontal :cardItem="horizontalData" /></li>
     </ul>
   </div>
+</div>
 </template>
 
 <script setup lang="ts">

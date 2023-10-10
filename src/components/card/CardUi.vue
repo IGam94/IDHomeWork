@@ -1,15 +1,15 @@
 <template>
-  <div class="flex flex-col max-w-40 border">
-    <div class="flex justify-center items-center max-w-[10rem] max-h-[10rem] aspect-square bg-black">
-      <img class="w-full" :src="cardItem.img || './ljs.jpeg'" alt="" />
+  <div class="flex flex-col max-w-[18rem] border">
+    <div class="flex justify-center items-center max-w-[18rem] max-h-[18rem] aspect-square bg-gray-200">
+      <img class="w-full h-auto" :src="cardItem.img || './ljs.jpeg'" alt="" />
     </div>
-    <div class="bg-slate-50">
-      <div v-if="cardItem.label || cardItem.title" class="p-2">
-        <p class="text-xs">{{ cardItem.label }}</p>
-        <p class="text-sm">{{ cardItem.title }}</p>
+    <div class="bg-slate-50 ">
+      <div v-if="cardItem.label || cardItem.title" class="p-2 ">
+        <p class="text-sm line-clamp-3">{{ cardItem.label }}</p>
+        <p class="text-lg line-clamp-3">{{ cardItem.title }}</p>
       </div>
       <div v-if="cardItem.cellPrice || cardItem.price" class="flex items-center p-2">
-        <p class="text-md text-red-400">{{ cardItem.cellPrice }}원</p>
+        <p class="text-lg text-red-400">{{ cardItem.cellPrice }}원</p>
         <p class="ml-1 text-xs line-through">{{ cardItem.price }}원</p>
       </div>
     </div>
@@ -33,7 +33,7 @@
           </svg>
         </button>
       </div>
-      <p class="text-xs">{{ cardItem.review }}</p>
+      <p class="text-sm line-clamp-3">{{ cardItem.review }}</p>
     </div>
   </div>
 </template>
