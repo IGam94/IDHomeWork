@@ -2,8 +2,8 @@
   <div class="relative flex m-2">
     <div class="relative flex w-full">
       <textarea
-        class="w-full h-20 border p-2 resize-none"
-        :class="{ 'focus:outline-none': readonly }"
+        class="w-full h-20 border p-2 resize-none text-black"
+        :class="{ 'focus:outline-none bg-gray-50 text-gray-600': readonly, 'bg-gray-300 text-gray-400':disabled }"
         type="textBox"
         placeholder="내용을 입력해주세요."
         :maxlength="maxLength"
@@ -14,7 +14,10 @@
         @focus="inputFocus"
         @blur="inputBlur"
       />
-      <p class="absolute bottom-2 right-2">
+      <p 
+        class="absolute bottom-2 right-2"         
+        :class="{ 'text-gray-600': readonly, 'text-gray-400':disabled }"
+      >
         {{ maxLength - textLength < 0 ? 0 : maxLength - textLength }}
       </p>
     </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col max-w-xl border">
+  <div class="flex flex-col max-w-40 border">
     <div class="flex justify-center items-center max-w-[10rem] max-h-[10rem] aspect-square bg-black">
       <img class="w-full" :src="cardItem.img || './ljs.jpeg'" alt="" />
     </div>

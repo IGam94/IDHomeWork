@@ -1,6 +1,6 @@
 <template>
-  <div class="flex h-screen items-center">
-    <ul class="flex flex-wrap max-w-fit  my-0 mx-auto px-10 gap-8 ">
+<div class="flex h-screen items-center justify-center">
+  <ul class="flex flex-wrap sm:justify-center my-0 mx-auto px-10 gap-8">
       <li v-for="item in data" :key="item.id">
         <CardUi :cardItem="item" />
       </li>
@@ -64,7 +64,7 @@ const data = ref([
 const horizontalData = ref({
   id: 1,
   img: './productImg.png',
-  label: '이 상품은 영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게 행운을 주었고',
+  label: '이 상품은 영국에서 최초로 시작되어 일년에 한바퀴를 돌면서 받는 사람에게 행운을',
   title: '상품명1',
   cellPrice: 0,
   price: 0,
