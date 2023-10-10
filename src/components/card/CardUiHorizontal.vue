@@ -1,6 +1,6 @@
 <template>
   <div class="flex max-w-[35rem] border">
-    <div class="flex justify-center items-center max-w-[18rem] bg-black">
+    <div class="flex justify-center items-center max-w-[18rem] bg-gray-200">
       <img class="" :src="cardItem.img || '../src/assets/image/ljs.jpeg'" alt="" />
     </div>
     <div class="flex flex-col justify-between bg-slate-50">
