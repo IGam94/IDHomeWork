@@ -1,5 +1,5 @@
 <template>
-<div class="flex h-screen items-center">
+<div class="flex flex-wrap h-screen items-center">
   <div class=" w-[900px] sm:w-auto  mx-auto my-0 items-center ">
     <ul class="grid grid-cols-4 sm:grid-cols-2 my-0 mx-auto px-10 gap-8">
         <li class="w-[100%]" v-for="item in data" :key="item.id">
