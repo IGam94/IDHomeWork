@@ -66,7 +66,7 @@ const clickedStar = (starCount) => {
   selectedStar.value = starCount
 }
 const starColor = (count) => {
-  const fill = count <= selectedStar.value ? 'yellow' : '#eee'
+  const fill = count <= selectedStar.value ? '#ffea00' : '#eee'
   return fill
 }
 </script>
