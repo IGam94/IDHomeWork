@@ -1,22 +1,22 @@
 <template>
-  <div class="flex max-w-[35rem] border">
-    <div class="flex justify-center items-center max-w-[18rem] bg-gray-200">
+  <div class="table  max-w-[35rem] border">
+    <div class="table-cell align-top  justify-center items-center w-[30%] min-w-[165px] bg-gray-200">
       <img class="" :src="cardItem.img || '../src/assets/image/ljs.jpeg'" alt="" />
     </div>
-    <div class="flex flex-col justify-between bg-slate-50">
+    <div class="table-cell relative align-top w-[100%] min-h-[165px] overflow-hidden bg-slate-50">
       <div class="p-2 ">
-        <p class="text-lg mb-2 line-clamp-3">{{ cardItem.title }}</p>
-        <p class="text-sm line-clamp-3">{{ cardItem.label }}</p>
+        <p class="text-sm mb-2 line-clamp-3">{{ cardItem.title }}</p>
+        <p class="text-xs line-clamp-3">{{ cardItem.label }}</p>
         <div v-if="cardItem.cellPrice || cardItem.price" class="flex items-center">
           <p class="text-md text-red-400">{{ cardItem.cellPrice }}원</p>
           <p class="ml-1 text-xs line-through">{{ cardItem.price }}원</p>
         </div>
       </div>
       <div
-        class="flex items-center bg-slate-50 p-2"
+        class="absolute items-center bottom-0 w-full max-h-20 overflow-scroll bg-slate-50 p-2"
         v-if="cardItem.star !== null || cardItem.review"
       >
-        <div class="max-h-20" v-if="cardItem.star !== null">
+        <div class="inline-block max-h-[10rem] " v-if="cardItem.star !== null">
           <button v-for="(starCount, index) in star" :key="index" @click="clickedStar(starCount)">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -32,8 +32,8 @@
             </svg>
           </button>
         </div>
-        <span class="text-slate-300 mx-1">|</span>
-        <p class="text-xs line-clamp-3 text-slate-400">{{ cardItem.name }}</p>
+        <span class="inline-block text-slate-300 mx-1">|</span>
+        <p class="inline-block text-xs line-clamp-3 text-slate-400">{{ cardItem.name }}</p>
       </div>
     </div>
   </div>
