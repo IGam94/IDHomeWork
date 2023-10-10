@@ -1,6 +1,6 @@
 <template>
-  <div class="flex h-screen justify-center items-center">
-    <ul class="flex w-auto gap-8 flex-wrap">
+  <div class="flex h-screen items-center">
+    <ul class="flex flex-wrap max-w-fit  my-0 mx-auto px-10 gap-8 ">
       <li v-for="item in data" :key="item.id">
         <CardUi :cardItem="item" />
       </li>

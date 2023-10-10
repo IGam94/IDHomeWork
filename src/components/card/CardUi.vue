@@ -1,7 +1,7 @@
 <template>
-  <div class="flex flex-col max-w-40 border">
-    <div class="flex justify-center items-center w-40 h-40 bg-black">
-      <img class="max-w-100" :src="cardItem.img || './ljs.jpeg'" alt="" />
+  <div class="flex flex-col max-w-xl border">
+    <div class="flex justify-center items-center max-w-[10rem] max-h-[10rem] aspect-square bg-black">
+      <img class="w-full" :src="cardItem.img || './ljs.jpeg'" alt="" />
     </div>
     <div class="bg-slate-50">
       <div v-if="cardItem.label || cardItem.title" class="p-2">
@@ -65,7 +65,7 @@ const clickedStar = (starCount) => {
   selectedStar.value = starCount
 }
 const starColor = (count) => {
-  const fill = count <= selectedStar.value ? 'yellow' : '#eee'
+  const fill = count <= selectedStar.value ? '#ffea00' : '#eee'
   return fill
 }
 </script>

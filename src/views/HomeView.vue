@@ -1,14 +1,14 @@
 <template>
-  <div class="flex">
+  <div class="flex sm:flex-col">
     <router-link to="/card" class="relative w-full">
       <div class="card"></div>
-      <div class="flex items-center justify-center h-screen">
+      <div class="flex items-center justify-center h-screen sm:h-[50vh]">
         <p class="z-10 text-3xl text-white">CardUI 바로가기</p>
       </div>
     </router-link>
     <router-link to="/form" class="relative w-full">
       <div class="form"></div>
-      <div class="flex items-center justify-center h-screen">
+      <div class="flex items-center justify-center h-screen sm:h-[50vh]">
         <p class="z-10 text-3xl text-white">FormUI 바로가기</p>
       </div>
     </router-link>

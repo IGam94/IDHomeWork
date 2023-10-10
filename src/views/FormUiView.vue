@@ -1,6 +1,6 @@
 <template>
   <div class="flex h-screen justify-center items-center">
-    <ul class="">
+    <ul class="w-[80rem]">
       <li><FormInputBox v-model="text" :maxLength="maxLength" /></li>
       <li><FormInputBox v-model="readonlyText" :maxLength="maxLength" readonly /></li>
       <li><FormInputBox v-model="disabledText" :maxLength="maxLength" disabled /></li>

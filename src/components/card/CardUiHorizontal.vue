@@ -1,10 +1,10 @@
 <template>
   <div class="flex max-w-40 border">
-    <div class="flex justify-center items-center w-40 h-40 bg-black">
-      <img class="max-w-100" :src="cardItem.img || '../src/assets/image/ljs.jpeg'" alt="" />
+    <div class="flex justify-center items-center max-w-[10rem] bg-black">
+      <img class="" :src="cardItem.img || '../src/assets/image/ljs.jpeg'" alt="" />
     </div>
     <div class="flex flex-col justify-between w-56 bg-slate-50">
-      <div class="p-2">
+      <div class="p-2 ">
         <p class="text-sm mb-2">{{ cardItem.title }}</p>
         <p class="text-xs">{{ cardItem.label }}</p>
         <div v-if="cardItem.cellPrice || cardItem.price" class="flex items-center">
@@ -16,7 +16,7 @@
         class="flex items-center bg-slate-50 p-2"
         v-if="cardItem.star !== null || cardItem.review"
       >
-        <div class="h-6" v-if="cardItem.star !== null">
+        <div class="max-h-20" v-if="cardItem.star !== null">
           <button v-for="(starCount, index) in star" :key="index" @click="clickedStar(starCount)">
             <svg
               xmlns="http://www.w3.org/2000/svg"

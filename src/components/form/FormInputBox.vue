@@ -1,5 +1,5 @@
 <template>
-  <div class="relative flex w-[40rem] m-2">
+  <div class="relative flex m-2">
     <div class="relative flex w-full">
       <textarea
         class="w-full h-20 border p-2 resize-none"
@@ -18,10 +18,10 @@
         {{ maxLength - textLength < 0 ? 0 : maxLength - textLength }}
       </p>
     </div>
-    <div v-if="showSaveBtn">
+    <div v-if="isShowSaveBtn">
       <button
         @click="saveText"
-        :disabled="!activeSaveBtn"
+        :disabled="!isActiveSaveBtn"
         class="w-20 h-20 border bg-amber-500 hover:bg-amber-600 text-white disabled:bg-gray-200 disabled:text-gray-400"
       >
         저장
@@ -52,13 +52,13 @@ const modelValue: Ref<string> = defineModel({ required: true })
 
 const originText: Ref<string> = ref(modelValue.value || '')
 const textLength: Ref<number> = ref(modelValue.value.length || 0)
-const activeSaveBtn = ref(false)
-const showSaveBtn = ref(false)
+const isActiveSaveBtn = ref(false)
+const isShowSaveBtn = ref(false)
 
 watchEffect(() => {
   originText.value !== modelValue.value
-    ? (activeSaveBtn.value = true)
-    : (activeSaveBtn.value = false)
+    ? (isActiveSaveBtn.value = true)
+    : (isActiveSaveBtn.value = false)
 })
 
 const countText = (e) => {
@@ -72,10 +72,10 @@ const saveText = () => {
     : alert('저장 되었습니다.')
 }
 const inputFocus = () => {
-  readonly ? (showSaveBtn.value = false) : (showSaveBtn.value = true)
+  readonly ? (isShowSaveBtn.value = false) : (isShowSaveBtn.value = true)
 }
 const inputBlur = () => {
-  originText.value === modelValue.value ? (showSaveBtn.value = false) : (showSaveBtn.value = true)
+  originText.value === modelValue.value ? (isShowSaveBtn.value = false) : (isShowSaveBtn.value = true)
 }
 </script>
 
